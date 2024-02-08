@@ -12,7 +12,6 @@ export default function TodoItem({item, fetchDayData, fetchMultipleDayData}) {
 
     const newItem = {...item, country: `https://flagsapi.com/${item.country}/flat/64.png`}
 
-    
 
     
     return(
@@ -22,7 +21,7 @@ export default function TodoItem({item, fetchDayData, fetchMultipleDayData}) {
             }
         }>
             <View style={styles.item}>   
-                <Text style={styles.newItemText}>{newItem.local_names.en === undefined ? newItem.local_names.hr : newItem.local_names.en }</Text>
+                <Text style={styles.newItemText}>{newItem.name }</Text>
                 <Image source={{uri: newItem.country}} style={styles.logo}/>
                   
                 

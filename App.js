@@ -21,12 +21,13 @@ export default function App() {
   //http://api.openweathermap.org/geo/1.0/direct?q=' . $_POST['city_name'] . '&limit=5&appid=' . $api_key
   
 
-  const fetchDayData = async (item) => {
+ const fetchDayData = async (item) => {
 			
     try {
       setIsLoading(true)
         await axios.get(
             `https://api.openweathermap.org/data/2.5/weather?lat=${item.lat}&lon=${item.lon}&units=metric&appid=${appid}`, 
+            //`http://api.openweathermap.org/geo/1.0/direct?q=${item.input}&limit=5&appid=${appid}`,
           { 
             withCredentials: true,
             credentials: 'include',
@@ -42,6 +43,7 @@ export default function App() {
           console.log(error.message);
         }				  
 }
+
 
 const fetchMultipleDayData = async (item) => {
 			
@@ -87,12 +89,13 @@ const fetchMultipleDayData = async (item) => {
       }				  
 }
 
-  const fetchCitiesFunc = async (search) => {
-			
+const fetchCitiesFunc = async (search) => {
+    
     try {
       setIsLoading(true)
         await axios.get(
-            `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=3&appid=${appid}`, 
+          `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=3&appid=317875d9da97449bd31293b89a4d994e`, 
+            //`http://api.openweathermap.org/geo/1.0/direct?q=Z&limit=3&appid=${appid}`, 
           { 
             withCredentials: true,
             credentials: 'include',
@@ -108,7 +111,6 @@ const fetchMultipleDayData = async (item) => {
           console.log(error.message);
         }				  
 }
-
 // console.log('citiesMAINPAGE:', cities)
 // console.log('dayData:', dayData)
 // console.log('multipleDAYDATA:', multipleDayData)
